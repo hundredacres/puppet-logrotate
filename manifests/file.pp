@@ -37,7 +37,7 @@ define logrotate::file (
 
   $manage_file_content = $content ? {
     ''        => undef,
-    default   => $content,
+    default   => template($content),
   }
 
   $real_ensure = $logrotate::bool_absent ? {
